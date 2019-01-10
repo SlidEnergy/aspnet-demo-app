@@ -1,0 +1,52 @@
+<mat-toolbar>
+  <span>Регистрация</span>
+</mat-toolbar>
+<mat-card class="my-card">
+  <mat-card-content>
+    <form class="my-form">
+      <mat-form-field class="full-width">
+        <mat-label>Имя пользователя</mat-label>
+        <input matInput
+               placeholder="Имя пользователя"
+               name="userName"
+               [(ngModel)]="model.userName"
+               required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput
+               placeholder="Email"
+               name="email"
+               [(ngModel)]="model.email"
+               required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Пароль</mat-label>
+        <input matInput
+               placeholder="Пароль"
+               name="password"
+               [(ngModel)]="model.password"
+               [type]="hide ? 'password' : 'text'"
+               required>
+        <mat-icon matSuffix
+                  (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Подтверждение пароля</mat-label>
+        <input matInput
+               placeholder="Подтверждение пароля"
+               name="password"
+               [(ngModel)]="model.confirmPassword"
+               [type]="hide2 ? 'password' : 'text'"
+               required>
+        <mat-icon matSuffix
+                  (click)="hide2 = !hide2">{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <mat-spinner-button [options]="spinnerButtonOptions"
+                        color="primary"
+                        (click)="register()"></mat-spinner-button>
+  </mat-card-actions>
+</mat-card>

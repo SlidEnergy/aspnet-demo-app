@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+   <mat-toolbar-row>
+      <span class="title">PW system</span>
+      <span class="user-info"
+            *ngIf="isLoggedIn | async">{{ (currentUser | async)?.userName }} : {{ (currentUser | async)?.balance }} PW</span>
+      <span class="spacer"></span>
+      <a mat-button
+         *ngIf="!(isLoggedIn | async)"
+         routerLink="/entry/register">Регистрация</a>
+      <a mat-button
+         *ngIf="!(isLoggedIn | async)"
+         routerLink="/entry/login">Вход</a>
+
+      <a mat-button
+         *ngIf="isLoggedIn | async"
+         (click)="logout()">Выход</a>
+   </mat-toolbar-row>
+</mat-toolbar>

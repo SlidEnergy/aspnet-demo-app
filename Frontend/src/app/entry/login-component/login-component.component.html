@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <span>Вход</span>
+</mat-toolbar>
+<mat-card class="my-card">
+  <mat-card-content>
+    <form class="my-form">
+      <mat-form-field class="full-width">
+        <mat-label>Имя пользователя</mat-label>
+        <input matInput
+               placeholder="Имя пользователя"
+               name="userName"
+               [(ngModel)]="model.userName">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Пароль</mat-label>
+        <input matInput
+               placeholder="Пароль"
+               name="password"
+               [(ngModel)]="model.password"
+               [type]="hide ? 'password' : 'text'"
+               required>
+        <mat-icon matSuffix
+                  (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <mat-spinner-button [options]="spinnerButtonOptions"
+                        color="primary"
+                        (click)="login()"></mat-spinner-button>
+  </mat-card-actions>
+</mat-card>
